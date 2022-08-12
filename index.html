@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+     /*   let xhr = new XMLHttpRequest();
+xhr.open("POST", "https://e-ticket.railway.uz/api/v2/train/availability/space/between/stations");
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Content-Length", "120");
+xhr.setRequestHeader("Accept-Encoding", "gzip, deflate, br");
+xhr.setRequestHeader("Connection", "keep-alive");
+
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4) {
+    console.log(xhr.status);
+    console.log(xhr.responseText);
+  }};
+
+let data = `{
+    "stationFrom": "2900872",
+    "stationTo": "2900000",
+    "direction": [
+        {
+            "type": "Forward",
+            "fullDay": "true",
+            "depDate": "20.08.2022"
+        }
+    ]
+}`;
+
+xhr.send(data);
+
+console.log("xhr.response");
+console.log(xhr.response.type);
+console.log(xhr.response);
+console.log("xhr.response");
+*/
+
+/*
+const sorov = fetch("https://e-ticket.railway.uz/api/v2/train/availability/space/between/stations", {
+method: 'POST',
+headers: {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Content-Length": "120",
+"Accept-Encoding": "gzip, deflate, br",
+"Connection":"keep-alive"
+},
+
+body: `
+{
+    "stationFrom": "2900872",
+    "stationTo": "2900000",
+    "direction": [
+        {
+            "type": "Forward",
+            "fullDay": "true",
+            "depDate": "20.08.2022"
+        }
+    ]
+}
+`,
+});
+
+
+sorov.then(response => response.json()).then(data => {
+        const d = data.direction[0].passRoute;
+        if(d){
+            fetch("https://api.telegram.org/bot5566719249:AAH8Q8Efz0CwnhMyZAghWqntsIjaXpr8LRc/sendMessage?chat_id=@boybori_zarhol&text=hello%20world");
+        }
+        }).catch(error => console.log(error));
+*/
+
+
+        setInterval(function () {
+            
+fetch("https://e-ticket.railway.uz/api/v2/train/availability/space/between/stations", {
+method: 'POST',
+headers: {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Content-Length": "120",
+"Accept-Encoding": "gzip, deflate, br",
+"Connection":"keep-alive"
+},
+
+body: `
+{
+    "stationFrom": "2900872",
+    "stationTo": "2900000",
+    "direction": [
+        {
+            "type": "Forward",
+            "fullDay": "true",
+            "depDate": "20.07.2022"
+        }
+    ]
+}
+`,
+}).then(response => response.json()).then(data => {
+        const d = data.direction[0].passRoute;
+        if(d){
+            fetch("https://api.telegram.org/bot5566719249:AAH8Q8Efz0CwnhMyZAghWqntsIjaXpr8LRc/sendMessage?chat_id=@lmlmlmlmlknmlkmlknlknndfghkn&text=❗️❗️❗️Iltimos Kim bu smsni ko'rgan bo'lsa Jaloliddinga 998946668403 ga telefon qilib poyezdga bilet chiqqanini xabarini bering!!!");
+        }
+        }).catch(error => console.log(error));
+
+        }, 110000);
+
+    </script>
+</body>
+</html>
